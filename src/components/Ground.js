@@ -3,7 +3,7 @@ import { Block } from "./Block";
 
 export const Ground = ({ camera }) => {
 
-  const groundSize = 20;
+  const groundSize = 16;
   const cubeSize = 1;
 
   const chunkSize = 8;
