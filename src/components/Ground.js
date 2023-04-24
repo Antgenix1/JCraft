@@ -5,7 +5,7 @@ export const Ground = () => {
 
   const groundSize = 20;
   const cubeSize = 1;
-
+  
 const cubes = [];
 for (let x = -groundSize / 2; x < groundSize / 2; x += cubeSize) {
   for (let z = -groundSize / 2; z < groundSize / 2; z += cubeSize) {
