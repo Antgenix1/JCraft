@@ -11,5 +11,5 @@ export {
 	glassImg,
 	woodImg,
 	logImg,
-	stoneIMG
+	stoneIMG,
 }
