@@ -27,7 +27,6 @@ export const Player = () => {
         api.position.subscribe((p) => pos.current = p)
     }, [api.position])
 
-
     useFrame(() => {
         camera.position.copy(new Vector3(pos.current[0], pos.current[1], pos.current[2]))
 
