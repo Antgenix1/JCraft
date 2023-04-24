@@ -53,14 +53,6 @@ body {
   color: white;
 }
 
-.texture-select {
-  transform: scale(5);
-}
-
-.texture-select img.active{
-  border: 2px solid red;
-}
-
 .menu {
   top: 0px;
   left: 10px;

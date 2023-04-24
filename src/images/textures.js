@@ -1,12 +1,5 @@
 import {NearestFilter, TextureLoader, RepeatWrapping} from 'three'
-import {
-    dirtImg,
-	grassImg,
-	glassImg,
-	woodImg,
-	logImg,
-    stoneIMG,
-} from './images'
+import { dirtImg, grassImg, glassImg, woodImg, logImg, stoneIMG,} from './images'
 
 const dirtTexture = new TextureLoader().load(dirtImg);
 const grassTexture = new TextureLoader().load(grassImg);
@@ -33,5 +26,5 @@ export {
     woodTexture,
     logTexture,
     groundTexture,
-    stoneTexture
+    stoneTexture,
 }

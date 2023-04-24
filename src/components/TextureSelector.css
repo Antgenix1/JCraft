@@ -1,0 +1,11 @@
+.texture-select{
+    position: absolute;
+    transform: scale(3);    
+    bottom: 10%;
+    display: flex;
+    left: 46%;
+
+}
+.texture-select img.active{
+    border: 1px solid red;
+  }
