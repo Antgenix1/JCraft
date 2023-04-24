@@ -1,25 +1,32 @@
-import { usePlane } from "@react-three/cannon"
-import { groundTexture } from "../images/textures"
-import { useStore } from "../hooks/useStore"
+import { noise } from "../utils/noise";
+import { Block } from "./Block";
 
 export const Ground = () => {
-        const [ref] = usePlane(() => ({
-            rotation: [-Math.PI / 2,0,0], position: [0,-0.5,0]
-        }))
-        const [addCube] = useStore((state) => [state.addCube])
 
-        groundTexture.repeat.set(100,100)
+  const groundSize = 20;
+  const cubeSize = 1;
 
-        return(
-            <mesh 
-            onClick={(e) => {
-                e.stopPropagation()
-                const [x,y,z] = Object.values(e.point).map(val => Math.ceil(val));
-                addCube(x,y,z)
-            }}
-            ref={ref}>
-                <planeBufferGeometry attach='geometry' args={[100,100]} />
-                <meshStandardMaterial attach="material" map={groundTexture}/>
-            </mesh>
-        )
+const cubes = [];
+for (let x = -groundSize / 2; x < groundSize / 2; x += cubeSize) {
+  for (let z = -groundSize / 2; z < groundSize / 2; z += cubeSize) {
+    const y = noise(x / 20, z / 20);
+    cubes.push(
+      <Block
+        key={`${x}-${y}-${z}`}
+        position={[
+          Math.floor(x) + cubeSize / 2,
+          Math.floor(y) + cubeSize / 2,
+          Math.floor(z) + cubeSize / 2,
+        ]}
+        size={[cubeSize, cubeSize, cubeSize]}
+      />
+    );
+  }
 }
+
+  return (
+    <>
+      {cubes}
+    </>
+  );
+};
