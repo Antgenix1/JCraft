@@ -23,9 +23,11 @@ export const Block = ({ position, size }) => {
   return (
     <mesh
     onClick={(e) => {
+      if (e.button === 2)  {
       e.stopPropagation();
       const [x, y, z] = calculateCubePosition(e.point);
       addCube(x, y, z);
+      }
     }}
     ref={ref} position={position}>
       <boxBufferGeometry attach="geometry" args={size} />
