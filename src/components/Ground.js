@@ -31,7 +31,7 @@ export const Ground = ({ camera }) => {
           );
         }
       }
-      chunks.push(<group position={[chunkX, 0, chunkZ]}>{cubes}</group>);
+      chunks.push(<group>{cubes}</group>);
     }
   }
 
