@@ -18,7 +18,7 @@ function App() {
         <Physics>
           <Player />
           <Cubes />
-          <Ground/>
+          {/* <Ground/> */}
         </Physics>
       </Canvas>
       <div className='absolute centered cursor'>+</div>

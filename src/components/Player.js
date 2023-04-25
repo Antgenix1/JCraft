@@ -3,6 +3,7 @@ import { useSphere } from "@react-three/cannon"
 import {useEffect, useRef} from "react"
 import { Vector3 } from "three"
 import { useKeyboard } from "../hooks/useKeyboard"
+import { Ground } from "./Ground"
 
 const JUMP_FORCE = 4
 const SPEED = 4
@@ -57,6 +58,9 @@ export const Player = () => {
     })
 
     return (
+        <>
         <mesh ref={ref}></mesh>
+        <Ground camera={camera.position} />
+        </>
     )
 }
