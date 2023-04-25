@@ -3,10 +3,11 @@ import { useSphere } from "@react-three/cannon"
 import {useEffect, useRef} from "react"
 import { Vector3 } from "three"
 import { useKeyboard } from "../hooks/useKeyboard"
-import { Ground } from "./Ground"
+import { SPEED } from "../hooks/useKeyboard"
+
 
 const JUMP_FORCE = 4
-const SPEED = 4
+
 
 export const Player = () => {
     const {moveBackward, moveForward, moveLeft, moveRight, jump} = useKeyboard()
@@ -29,7 +30,7 @@ export const Player = () => {
     }, [api.position])
 
     useFrame(() => {
-        camera.position.copy(new Vector3(pos.current[0], pos.current[1]+1, pos.current[2]))
+        camera.position.copy(new Vector3(pos.current[0], pos.current[1]+0.8, pos.current[2]))
 
         const direction = new Vector3()
 
