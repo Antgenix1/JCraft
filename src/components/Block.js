@@ -1,11 +1,8 @@
 import { useBox } from "@react-three/cannon";
 import { groundTexture } from "../images/textures";
 import { useStore } from "../hooks/useStore";
-import { Player } from "./Player";
-import { useState } from "react";
 
 export const Block = ({ position, size }) => {
-  const [playerPosition, setPlayerPosition] = useState([0, 0, 0]);
   const [addCube] = useStore((state) => [state.addCube]);
   const cubeSize = 1;
 
@@ -26,10 +23,11 @@ export const Block = ({ position, size }) => {
   return (
     <mesh
     onClick={(e) => {
+      if (e.button === 2)  {
       e.stopPropagation();
       const [x, y, z] = calculateCubePosition(e.point);
       addCube(x, y, z);
-      setPlayerPosition([x, y, z]);
+      }
     }}
     ref={ref} position={position}>
       <boxBufferGeometry attach="geometry" args={size} />

@@ -1,8 +1,12 @@
 import { useCallback, useEffect, useState } from "react"
 
+
+
 function actionByKey(key) {
     const keyActionMap = {
         KeyW: 'moveForward',
+        ShiftLeft:'sprintForward',
+        ShiftRight:'sprintForward',
         KeyS: 'moveBackward',
         KeyA: 'moveLeft',
         KeyD: 'moveRight',
@@ -17,9 +21,12 @@ function actionByKey(key) {
     return keyActionMap[key]
 }
 
+export let SPEED = 4
+
 export const useKeyboard = () => {
     const [actions, setActions] = useState({
         moveForward: false,
+        sprintForward: false,
         moveBackward: false,
         moveLeft: false,
         moveRight: false,
@@ -30,11 +37,14 @@ export const useKeyboard = () => {
         wood: false,
         log: false,
         stone: false,
-    })
 
+    })
     const handleKeyDown = useCallback((e) => {
         const action = actionByKey(e.code)
-            if(action){
+            if(action === 'sprintForward'){
+                SPEED = 7
+            } 
+            else {
                 setActions((prev) => {
                     return({
                         ...prev,
@@ -42,14 +52,15 @@ export const useKeyboard = () => {
                     })
                 })
             }
-    }, [])
-
+    }, [])  
     const handleKeyUp = useCallback((e) => {
         const action = actionByKey(e.code)
-            if(action){
+            if(action === 'sprintForward'){
+                SPEED = 4
+            } else {
                 setActions((prev) => {
                     return({
-                        ...prev,
+                       ...prev,
                         [action]: false
                     })
                 })
@@ -59,11 +70,14 @@ export const useKeyboard = () => {
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
         document.addEventListener('keyup', handleKeyUp)
+        
         return() => {
+           
             document.removeEventListener('keydown', handleKeyDown)
             document.removeEventListener('keyup', handleKeyUp)
         }
     }, [handleKeyDown, handleKeyUp])
 
     return actions
+    
 }
