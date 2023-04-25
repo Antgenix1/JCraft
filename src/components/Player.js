@@ -3,10 +3,11 @@ import { useSphere } from "@react-three/cannon"
 import {useEffect, useRef} from "react"
 import { Vector3 } from "three"
 import { useKeyboard } from "../hooks/useKeyboard"
-import { Ground } from "./Ground"
+import { SPEED } from "../hooks/useKeyboard"
+
 
 const JUMP_FORCE = 4
-const SPEED = 4
+
 
 export const Player = () => {
     const {moveBackward, moveForward, moveLeft, moveRight, jump} = useKeyboard()
