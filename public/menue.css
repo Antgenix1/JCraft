@@ -1,0 +1,12 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/public/Minecraft-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.container {
+    text-align: center;
+}
