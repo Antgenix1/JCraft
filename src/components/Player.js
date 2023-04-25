@@ -4,6 +4,7 @@ import {useEffect, useRef} from "react"
 import { Vector3 } from "three"
 import { useKeyboard } from "../hooks/useKeyboard"
 import { SPEED } from "../hooks/useKeyboard"
+import { Ground } from "./Ground"
 
 
 const JUMP_FORCE = 4
