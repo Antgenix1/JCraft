@@ -1,8 +1,7 @@
 import { noise } from "../utils/noise";
 import { Block } from "./Block";
 import memoize from 'memoize-one';
-import { useMemo, useCallback } from 'react';
-import React from "react";
+import React, { useMemo, useCallback } from 'react';
 
 const memoizedNoise = memoize(noise)
 
