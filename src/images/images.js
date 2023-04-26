@@ -2,8 +2,10 @@ import dirtImg from './dirt.jpg';
 import grassImg from './grass.png';
 import glassImg from './glass.png';
 import logImg from './log.png';
-import woodImg from './wood.png';
+import woodImg from './wood.jpg';
 import stoneIMG from './stone.png';
+import sandIMG from './sand.png';
+import cobblestoneIMG from './cobblestone.png';
 
 export {
 	dirtImg,
@@ -12,4 +14,6 @@ export {
 	woodImg,
 	logImg,
 	stoneIMG,
+	sandIMG,
+	cobblestoneIMG,
 }
