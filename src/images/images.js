@@ -1,7 +1,7 @@
 import dirtImg from './dirt.jpg';
-import grassImg from './grass.jpg';
+import grassImg from './grass.png';
 import glassImg from './glass.png';
-import logImg from './log.jpg';
+import logImg from './log.png';
 import woodImg from './wood.png';
 import stoneIMG from './stone.png';
 
