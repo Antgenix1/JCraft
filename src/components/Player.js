@@ -13,7 +13,7 @@ const JUMP_FORCE = 4
 export const Player = () => {
     const {moveBackward, moveForward, moveLeft, moveRight, jump} = useKeyboard()
 
-    const {camera} = useThree()
+    const {camera} = useThree();
     const [ref, api] = useSphere(() => ({
         mass: 1,
         type: 'Dynamic',
@@ -62,7 +62,7 @@ export const Player = () => {
     return (
         <>
         <mesh ref={ref}></mesh>
-        <Ground camera={camera.position} />
+        <Ground camera={camera} />
         </>
     )
 }

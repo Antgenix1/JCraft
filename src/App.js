@@ -9,6 +9,8 @@ import { TextureSelector } from './components/TextureSelector';
 import { Menu } from './components/Menu';
 
 function App() {
+  
+
   return (
     <>
       <Canvas>

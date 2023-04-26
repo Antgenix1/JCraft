@@ -7,7 +7,10 @@ const memoizedNoise = memoize(noise)
 
 export const Ground = ({ camera }) => {
 
-  const groundSize = 24;
+  //DONT FORGET TO REMOVE
+  console.log(camera)
+
+  const groundSize = 36;
   const cubeSize = 1;
 
   const chunkSize = 8;
@@ -55,8 +58,8 @@ export const Ground = ({ camera }) => {
         const chunkX = cx * chunkSize - groundSize / 2;
         const chunkZ = cz * chunkSize - groundSize / 2;
         const distanceToCamera = Math.sqrt(
-          Math.pow(chunkX - camera.x, 2) +
-          Math.pow(chunkZ - camera.z, 2)
+          Math.pow(chunkX - camera.position.x, 2) +
+          Math.pow(chunkZ - camera.position.z, 2)
         );
         if (distanceToCamera < maxRenderDistance) {
           const cacheKey = `${chunkX},${chunkZ}`;
@@ -67,7 +70,7 @@ export const Ground = ({ camera }) => {
       }
     }
     return chunks;
-  }, [camera.x, camera.z, groundSize, chunkSize, numChunks, maxRenderDistance, chunkCache, generateCubes]);
+  }, [camera.position.x, camera.position.z, groundSize, chunkSize, numChunks, maxRenderDistance, chunkCache, generateCubes]);
 
   return (
     <>
