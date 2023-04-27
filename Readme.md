@@ -1,4 +1,4 @@
-JCraft
+<h1>JCraft</h1>
 This is a JCraft built with Three.js and React.
 
 Features
