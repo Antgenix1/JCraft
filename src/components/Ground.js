@@ -17,6 +17,7 @@ export const Ground = ({ camera }) => {
 
   const [chunkCache, setChunkCache] = useState({});
 
+  // Memoized version of the Block component
   const MemoizedBlock = React.memo(({x, y, z}) => (
     <Block
       key={`${x}-${y}-${z}`}
@@ -29,6 +30,7 @@ export const Ground = ({ camera }) => {
     />
   ));
 
+  // Function to generate the cubes for a given chunk
   const generateCubes = useCallback((chunkX, chunkZ) => {
     const cacheKey = `${chunkX},${chunkZ}`;
     if (chunkCache[cacheKey]) {
@@ -37,7 +39,9 @@ export const Ground = ({ camera }) => {
     const cubes = [];
     for (let x = chunkX; x < chunkX + chunkSize; x += cubeSize) {
       for (let z = chunkZ; z < chunkZ + chunkSize; z += cubeSize) {
+        // Generate the y position for the cube using noise function
         const y = memoizedNoise(x / 20, z / 20);
+        // Push MemoizedBlock with generated x, y, z positions to the cubes array
         cubes.push(
           <MemoizedBlock x={x} y={y} z={z} />
         );
@@ -48,6 +52,7 @@ export const Ground = ({ camera }) => {
     return result;
   }, [chunkSize, cubeSize, chunkCache]);
 
+  // Memoized chunks array for rendering
   const chunks = useMemo(() => {
     const chunks = [];
     for (let cx = 0; cx < numChunks; cx++) {
@@ -61,6 +66,7 @@ export const Ground = ({ camera }) => {
         if (distanceToCamera < maxRenderDistance) {
           const cacheKey = `${chunkX},${chunkZ}`;
           const cachedChunk = chunkCache[cacheKey];
+          // Use cachedChunk if available, else call generateCubes to generate new chunk
           const chunk = cachedChunk || generateCubes(chunkX, chunkZ);
           chunks.push(chunk);
         }
@@ -75,4 +81,3 @@ export const Ground = ({ camera }) => {
     </>
   );
 };
-
