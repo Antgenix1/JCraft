@@ -7,10 +7,7 @@ const memoizedNoise = memoize(noise)
 
 export const Ground = ({ camera }) => {
 
-  //DONT FORGET TO REMOVE
-  console.log(camera)
-
-  const groundSize = 36;
+  const groundSize = 24;
   const cubeSize = 1;
 
   const chunkSize = 8;
