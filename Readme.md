@@ -1,5 +1,5 @@
 <h1>JCraft</h1>
-This is a JCraft built with Three.js and React.
+This is JCraft built with Three.js and React.
 
 <h1>Features</h1>
 Ability to move around the world using the WASD keys.
